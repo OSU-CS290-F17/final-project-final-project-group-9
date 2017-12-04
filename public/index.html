@@ -17,9 +17,9 @@
       <!--navbar area: title and search filters -->
       <div class="navbar navbar-dark bg-dark">
         <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand">Workout Planner</a>
+          <a href="index.html" class="navbar-brand">Workout Planner</a>
           
-          <button type="button" class="btn btn-primary btn-sm">Add</button>
+          <a class="btn btn-primary btn-sm add-button" href="add.html" role="button">Add Workout</a>
 
           <!-- search area -->
           <form class="navbar-form navbar-left">
@@ -28,7 +28,7 @@
               
               <!-- search button -->          
               <div class="input-group-btn">
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default submit-button">Submit</button>
               </div>
 
               <!-- filters, hidden until search area clicked -->
@@ -59,12 +59,48 @@
       </div>
     </header>
     
-    <main role="main" class = "content">
-      
+    <main role="main" class="content">
+    
       <br>
-    
+      <!-- content of page -->
+      <div class="container">
+        <section id="posts">
+        
+          <div class="post" data-type="aerobic" data-intensity="vigorous">
+            <div class="post-contents">
+              <div class="post-image-container">
+                <img src="http://i.ebayimg.com/00/s/NTY2WDg0OA==/z/LZwAAOSw9NxTu8xN/$_32.JPG?set_id=880000500F" alt="Someone jogging">
+              </div>
+              <div class="post-info-container">
+                <a href="#" class="post-title">Jogging</a>
+                <p>
+                  <span class="post-type">Aerobic</span>
+                  <span class="post-intensity">Vigorous</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="post" data-type="aerobic" data-intensity="vigorous">
+            <div class="post-contents">
+              <div class="post-image-container">
+                <img src="https://cdn2.omidoo.com/sites/default/files/imagecache/full_width/images/bydate/201508/swimmingphoto1.jpg" alt="Someone swimming">
+              </div>
+              <div class="post-info-container">
+                <a href="#" class="post-title">Swimming</a>
+                <p>
+                  <span class="post-type">Aerobic</span>
+                  <span class="post-intensity">Vigorous</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+      <br>
     </main>
-    
+
     <!-- creating footer -->
     <footer class="text-muted">
       <div class="container">

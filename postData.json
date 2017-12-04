@@ -1,13 +1,13 @@
 [
     {
         "type": "aerobic",
-        "intensity": "moderate",
+        "intensity": "vigorous",
         "photoURL": "http://i.ebayimg.com/00/s/NTY2WDg0OA==/z/LZwAAOSw9NxTu8xN/$_32.JPG?set_id=880000500F",
         "description": "Jogging"
     },
     {
         "type": "aerobic",
-        "intensity": "moderate",
+        "intensity": "vigorous",
         "photoURL": "https://cdn2.omidoo.com/sites/default/files/imagecache/full_width/images/bydate/201508/swimmingphoto1.jpg",
         "description": "Swimming"
     }
