@@ -16,16 +16,48 @@ app.get('/data/:id',function(req,res,next){
 		} else if(!doc){
 			next();
 		}else{
-			res.send(doc);
+			res.status(200).send(doc);
 			console.log("doc id: "+doc.id+" doc name: "+doc.name);
 		}
 	})
-
-
 });
 
-app.get('/test', function(req,res,next){
-	console.log("got it");
+app.get('/data/type/:id', function(req,res,next){
+	var workouts = mdb.collection('workouts');
+	var workoutsCursor = workouts.find({type: parseInt(req.params.id)});
+	workoutsCursor.toArray(function(err, workoutDocs){
+		if(err){
+			res.status(500).send("Error fetching workouts from database.");
+		}else if(!workoutDocs){
+			next();
+		}else{
+			res.status(200).send(workoutDocs);
+		}
+	});
+});
+
+app.post('/data/new', function(req, res, next){
+	var workouts = mdb.collection('workouts');
+	length = workouts.count();
+	if(req.body && req.name && req.description&& req.duration && req.intensity && req.longdesc && req.type){
+		workouts.inserOne({
+			id: length,
+			name: req.name,
+			description: req.description,
+			duration: req.duration,
+			intensity: req.intensity,
+			longdesc: req.longdesc,
+			type: parseInt(req.type)
+		}, function(err, res){
+			if(err){
+				res.status(500).send("Error inserting photo into database");
+			}else{
+				res.status(200).send("Success.");
+			}
+		});
+	}else{
+		res.status(400).send("Request must have all fields of a workout");
+	}
 });
 
 app.get('*',function(req,res,next){
@@ -39,16 +71,7 @@ MongoClient.connect(mongoURL,function(err, db)
 		throw err;
 	}
 	mdb = db;
-	var workouts = mdb.collection('workouts');
-	var workoutsCursor = workouts.find({type: 2});
-	workoutsCursor.toArray(function(err, workoutDocs){
-		if(err){
-			res.status(500).send("Error fetching workouts from database.");
-		}else{
-			console.log("number of workouts: "+workoutDocs.length);
-			console.log("workout:"+workoutDocs[0].id);
-		}
-	})
+
 	app.listen(8000, function(){
 		console.log("== Server listening on port 8000");
 	});
