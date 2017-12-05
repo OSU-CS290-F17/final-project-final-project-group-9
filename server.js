@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var app = express();
+var path = require('path'); // Import path module
 app.use(bodyParser.json());
 var mdb;
 var mongoURL = 'mongodb://student:student@gettingstarted-shard-00-00-2q4vt.mongodb.net:27017,gettingstarted-shard-00-01-2q4vt.mongodb.net:27017,gettingstarted-shard-00-02-2q4vt.mongodb.net:27017/test?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin'
@@ -59,11 +60,10 @@ app.post('/data/new', function(req, res, next){
 		res.status(400).send("Request must have all fields of a workout");
 	}
 });
-
-app.get('*',function(req,res,next){
-	res.status(404).send("404 file not found");
-})
-
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/app/views/home.html'));
+});
+app.use(express.static('public'));
 MongoClient.connect(mongoURL,function(err, db)
 {
 	if(err)
@@ -76,4 +76,3 @@ MongoClient.connect(mongoURL,function(err, db)
 		console.log("== Server listening on port 8000");
 	});
 });
-
