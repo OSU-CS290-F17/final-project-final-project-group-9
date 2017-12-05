@@ -15,15 +15,15 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="./home.html">Fitness2U</a>
+          <a class="navbar-brand" href="./">Fitness2U</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="./add.html">Add Workout</a></li>
+          <li><a href="./add">Add Workout</a></li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse Workouts<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="./browse.html">Strength</a></li>
-              <li><a href="./browse.html">Aerobic</a></li>
-              <li><a href="./browse.html">Flexibility</a></li>
+              <li><a href="./browse/0">Strength</a></li>
+              <li><a href="./browse/1">Aerobic</a></li>
+              <li><a href="./browse/2">Flexibility</a></li>
             </ul>
           </li>
         </ul>
@@ -38,7 +38,7 @@
               <div class="panel-heading">Workout of the Day! December 5th, 2017</div>
               <div class="panel-body">
                 <div class="media">
-                  <a class="pull-left" href="#">
+                  <a class="pull-left" href="./workout/{{wOD.id}}">
                     <img class="media-object img-thumbnail of-day-img" src="{{wOD.img}}" alt="{{wOD.name}}">
                   </a>
                   <div class="media-body">
@@ -128,6 +128,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="../scripts/app.js"></script>
     <script src="../scripts/controllers.js"></script>
     <script src="../scripts/services.js"></script>
