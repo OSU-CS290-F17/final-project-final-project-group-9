@@ -45,11 +45,12 @@ app.post('/data/new', function(req, res, next){
 			return console.log(err);
 		}
 		console.log("length: "+num);
-		if(req.body && req.body.name && req.body.description&& req.body.duration && req.body.intensity && req.body.longdesc && req.body.type){
+		if(req.body && req.body.name && req.body.description&& req.body.img && req.body.duration && req.body.intensity && req.body.longdesc && req.body.type){
 			workouts.insertOne({
 				id: num,
 				name: req.body.name,
 				description: req.body.description,
+				img:req.body.img,
 				duration: req.body.duration,
 				intensity: req.body.intensity,
 				longdesc: req.body.longdesc,
