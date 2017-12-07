@@ -21,3 +21,27 @@
   margin: 10px;
   margin-top: 5px;
 }
+
+.jumbotron-fluid {
+  vertical-align: top;
+  background: url('../views/pics/WoDbackground.jpg') no-repeat center center;
+  height:700px;
+  background-size: cover;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.heading1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: center;
+  padding-top: 25%
+}
+
+.desc1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: center;
+}
