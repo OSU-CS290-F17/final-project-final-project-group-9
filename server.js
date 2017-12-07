@@ -39,28 +39,35 @@ app.get('/data/type/:id', function(req,res,next){
 
 app.post('/data/new', function(req, res, next){
 	var workouts = mdb.collection('workouts');
-	length = workouts.count();
-	console.log(req);
-	if(req.body && req.body.name && req.body.description&& req.body.duration && req.body.intensity && req.body.longdesc && req.body.type){
-		workouts.insertOne({
-			id: length,
-			name: req.body.name,
-			description: req.body.description,
-			duration: req.body.duration,
-			intensity: req.body.intensity,
-			longdesc: req.body.longdesc,
-			type: parseInt(req.body.type)
-		}, function(err, res){
-			if(err){
-				res.status(500).send("Error inserting photo into database");
-			}else{
-				res.status(200).send("Success.");
-			}
-		});
-	}else{
-		res.status(400).send("Request must have all fields of a workout");
-	}
+	workouts.find({}).count(function(err,num){
+		if(err){
+			res.status(500).send("Error inserting photo into database");
+			return console.log(err);
+		}
+		console.log("length: "+num);
+		if(req.body && req.body.name && req.body.description&& req.body.duration && req.body.intensity && req.body.longdesc && req.body.type){
+			workouts.insertOne({
+				id: num,
+				name: req.body.name,
+				description: req.body.description,
+				duration: req.body.duration,
+				intensity: req.body.intensity,
+				longdesc: req.body.longdesc,
+				type: parseInt(req.body.type)
+			}, function(err, result){
+				if(err){
+					res.status(500).send("Error inserting photo into database");
+				}else{
+					res.status(200).send("Success.");
+				}
+			});
+		}else{
+			res.status(400).send("Request must have all fields of a workout");
+		}
 });
+	});
+
+	
 
 app.use(express.static('public'));
 
