@@ -6,7 +6,7 @@ angular.module('fitness2Uapp')
       $http.get('/data/type/0')
         .success(function (data, status, headers, config) {
             $scope.sWOs = data;
-            $scope.wOD = data[0];
+            $scope.wOD = data[1];
             $scope.sWOs = $scope.sWOs.slice(0,3);
         })
         .error(function (data, status, header, config) {});
