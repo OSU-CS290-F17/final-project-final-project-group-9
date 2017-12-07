@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="fitness2Uapp">
-  <head>
-    <meta charset="utf-8">
-    <title>Workout Planner</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-  <body ng-controller="addController">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="./home.html">Fitness2U</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./add.html">Add Workout</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse Workouts<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="./browse.html">Strength</a></li>
-              <li><a href="./browse.html">Aerobic</a></li>
-              <li><a href="./browse.html">Flexibility</a></li>
-            </ul>
-          </li>
-          <!--<li><a href="#">Random</a></li>!-->
-        </ul>
-      </div>
-    </nav>
+<div ng-controller="addController">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -39,9 +10,19 @@
                   <label for="name">Name of Workout:</label>
                     <input name="name" type="text" class="form-control" ng-model="name" required>
                 </div>
+                <label class="mr-sm-2" for="id">Type: </label>
+                <select name="id" class="custom-select mb-2 mr-sm-2 mb-sm-0 stretch-form" ng-model="id" required>
+                  <option value="0">Strength</option>
+                  <option value="1">Aerobic</option>
+                  <option value="2">Flexibility</option>
+                </select>
                 <div class="form-group">
                   <label for="description">Description of Workout:</label>
                   <input name="description" type="text" class="form-control" ng-model="description" required>
+                </div>
+                <div class="form-group">
+                  <label for="img">Image: </label>
+                  <input name="img" type="text" class="form-control" ng-model="img" required>
                 </div>
                 <label class="mr-sm-2" for="duration">Duration: </label>
                 <select name="duration" class="custom-select mb-2 mr-sm-2 mb-sm-0 stretch-form" ng-model="duration" required>
@@ -59,8 +40,8 @@
                   <label for="longdesc">Workout: </label>
                   <textarea name="longdesc" class="form-control" rows="5" ng-model="longdesc"></textarea required>
                 </div>
-                <button type="submit" ng-disabled="workoutAdd.name.$invalid || workoutAdd.description.$invalid
-                    || workoutAdd.duration.$invalid || workoutAdd.intensity.$invalid || workAdd.longdesc.$pristine"
+                <button type="submit" ng-disabled="workoutAdd.name.$invalid || workoutAdd.id.$invalid || workoutAdd.description.$invalid
+                    || workoutAdd.img.$invalid || workoutAdd.duration.$invalid || workoutAdd.intensity.$invalid || workAdd.longdesc.$pristine"
                     ng-click="submit()" class="btn btn-default">Submit</button>
               </form>
             </div>
@@ -68,10 +49,4 @@
         </div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="../scripts/app.js"></script>
-    <script src="../scripts/controllers.js"></script>
-    <script src="../scripts/services.js"></script>
-  </body>
-</html>
+</div>

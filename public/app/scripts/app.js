@@ -1,17 +1,21 @@
 'use strict';
 var app = angular.module("fitness2Uapp", ["ngRoute"]);
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
     $routeProvider
       .when("/", {
-          templateUrl : "./app/views/home.html"
+          templateUrl : './app/views/home.html'
       })
-      .when("/browse", {
-          templateUrl : "./app/views/browse.html"
+      .when("/browse/:id", {
+          templateUrl : './app/views/browse.html'
       })
       .when("/add", {
-          templateUrl : "./add.html"
+          templateUrl : './app/views/add.html'
       })
-      .when("/workout", {
-          templateUrl : "./app/views/workout.html"
+      .when("/workout/:id", {
+          templateUrl : './app/views/workout.html'
+      })
+      .otherwise({
+          templateUrl : './app/views/home.html'
       });
 });

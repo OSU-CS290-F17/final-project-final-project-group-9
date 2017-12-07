@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fitness2Uapp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <title>fitness2U</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="./app/styles/style.css" rel="stylesheet">
+    <script src="./assets/js/angular.js"></script>
+    <script src="./assets/js/angular-route.js"></script>
+    <script src="./app/scripts/app.js"></script>
+    <script src="./app/scripts/controllers.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="./">fitness2U</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/add">Add Workout</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse Workouts<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/browse/0">Strength</a></li>
+              <li><a href="/browse/1">Aerobic</a></li>
+              <li><a href="/browse/2">Flexibility</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="ng-view"><div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

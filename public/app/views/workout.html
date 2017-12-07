@@ -1,41 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="fitness2Uapp">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>fitness2U</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="../styles/style.css" rel="stylesheet">
-  </head>
-  <body ng-controller="workoutDetailController">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="./home.html">Fitness2U</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./add.html">Add Workout</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse Workouts<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="./browse.html">Strength</a></li>
-              <li><a href="./browse.html">Aerobic</a></li>
-              <li><a href="./browse.html">Flexibility</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
+<div ng-controller="workoutDetailController">
+  <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-heading">{{wO.name}}</div>
             <div class="panel-body">
               <div class="media">
-                <a class="pull-left" href="#">
+                <a class="pull-left" href="/workout/{{wO.id}}">
                   <img class="media-object img-thumbnail main-img" src="{{wO.img}}" alt="{{wO.name}}">
                 </a>
                 <div class="media-body">
@@ -51,12 +22,4 @@
         </div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="../scripts/app.js"></script>
-    <script src="../scripts/controllers.js"></script>
-    <script src="../scripts/services.js"></script>
-  </body>
-</html>
+</div>

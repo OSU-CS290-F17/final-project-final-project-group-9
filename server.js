@@ -40,15 +40,16 @@ app.get('/data/type/:id', function(req,res,next){
 app.post('/data/new', function(req, res, next){
 	var workouts = mdb.collection('workouts');
 	length = workouts.count();
-	if(req.body && req.name && req.description&& req.duration && req.intensity && req.longdesc && req.type){
-		workouts.inserOne({
+	console.log(req);
+	if(req.body && req.body.name && req.body.description&& req.body.duration && req.body.intensity && req.body.longdesc && req.body.type){
+		workouts.insertOne({
 			id: length,
-			name: req.name,
-			description: req.description,
-			duration: req.duration,
-			intensity: req.intensity,
-			longdesc: req.longdesc,
-			type: parseInt(req.type)
+			name: req.body.name,
+			description: req.body.description,
+			duration: req.body.duration,
+			intensity: req.body.intensity,
+			longdesc: req.body.longdesc,
+			type: parseInt(req.body.type)
 		}, function(err, res){
 			if(err){
 				res.status(500).send("Error inserting photo into database");
@@ -60,10 +61,16 @@ app.post('/data/new', function(req, res, next){
 		res.status(400).send("Request must have all fields of a workout");
 	}
 });
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/app/views/home.html'));
-});
+
 app.use(express.static('public'));
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/app/index.html'));
+});
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/app/index.html'));
+});
+
 MongoClient.connect(mongoURL,function(err, db)
 {
 	if(err)
